@@ -1,13 +1,8 @@
-from flask import Flask, render_template
-import streamlit as st
+def main():
+    st.title('Streamlit Frontend for Flask API')
+    response = requests.get('http://localhost:8080/api/data')
+    data = response.json()
+    st.write(f"Data from Flask API: {data['data']}")
 
-app = Flask(__name__)
-@app.route('/')
-def index():
-    return render_template('index.html')
-@app.route('/streamlit')
-def streamlit():
-    st.set_page_config(page_title="My Streamlit App")
-    st.write("Hello, world!")
 if __name__ == '__main__':
-    app.run()
+    main()
