@@ -1,3 +1,6 @@
+import streamlit as st 
+import requests
+
 def main():
     st.title('Streamlit Frontend for Flask API')
     response = requests.get('http://localhost:8080/api/data')
